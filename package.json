@@ -6,9 +6,9 @@
   "homepage": "https://didriksn.github.io/3svelteghpages",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && cp ./src/quotes.json ./dist",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist && cp ./src/quotes.json ./dist"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
