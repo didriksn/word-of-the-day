@@ -4,7 +4,7 @@
   let quote;
 
   const fetchRandomQuote = async () => {
-    const response = await fetch('./quotes.json/');
+    const response = await fetch('/quotes.json/');
     const data = await response.json();
     const randomIndex = Math.floor(Math.random() * data.length);
     quote = data[randomIndex];
