@@ -19,7 +19,7 @@
       fetchRandomQuote();
     }
 
-    const interval = setInterval(fetchRandomQuote, 24 * 60 * 60 * 1000);
+    const interval = setInterval(fetchRandomQuote, 10000);
     return () => {
       clearInterval(interval);
     };
