@@ -4,7 +4,7 @@
   let quote;
 
   const fetchRandomQuote = async () => {
-    const response = await fetch('./assets/quotes.json');
+    const response = await fetch('dist/assets/quotes.json');
     const data = await response.json();
     const randomIndex = Math.floor(Math.random() * data.length);
     quote = data[randomIndex];
@@ -16,12 +16,10 @@
     if (storedQuote) {
       quote = JSON.parse(storedQuote);
     } else {
-      fetchRandomQuote(); // Initial fetch
+      fetchRandomQuote();
     }
 
-    const interval = setInterval(fetchRandomQuote, 10000); // Fetch a new random quote every 10 seconds (for testing local storage)
-
-    // Clean up the interval when the component is destroyed
+    const interval = setInterval(fetchRandomQuote, 10000);
     return () => {
       clearInterval(interval);
     };
@@ -29,6 +27,29 @@
 </script>
 
 <main>
+  <div class="header">
+    <nav>
+      <div id="menuToggle">
+        <input type="checkbox" />
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <ul id="menu">
+          <a href="https://didriksn.github.io/" target="_blank">Home</a>
+          <div>ExampleLink1</div>
+          <div>ExampleLink2</div>
+          <div>ExampleLink3</div>
+          <div>ExampleLink4</div>
+        </ul>
+      </div>
+    </nav>
+
+
+    <h1 class="title">WORD OF THE DAY</h1>
+  </div>
+
   {#if quote}
     <div class="quote">
       <p class="text">{quote.text}</p>
@@ -37,8 +58,6 @@
   {:else}
     <p>Loading...</p>
   {/if}
-</main>
 
-<style>
-  /* Add CSS styles for the main App component */
-</style>
+  <a class="cred" href="https://github.com/dwyl/quotes" target="_blank">Quotes</a>
+</main>
